@@ -1,12 +1,10 @@
 <template>
-    <div>
-
-    </div>
+    <section class="content-container"></section>
 </template>
 
 <script>
     export default {
-        name: "one"
+        layout: "frontend"
     }
 </script>
 

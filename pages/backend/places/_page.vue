@@ -9,11 +9,6 @@
 
     export default {
         layout: 'backend',
-        computed: {
-          page() {
-              return this.$route.params.page || 1;
-          }
-        },
         components: {
             List
         }

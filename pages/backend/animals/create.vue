@@ -5,7 +5,7 @@
 </template>
 
 <script>
-    import One from '~/components/backend/animals/one.vue';
+    //import One from '~/components/backend/animals/editor.vue';
 
     export default {
         name: "create",
@@ -16,7 +16,7 @@
             }
         },
         components: {
-            One
+            //   One
         },
     }
 </script>

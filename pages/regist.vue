@@ -1,9 +1,6 @@
 <template>
     <section>
-        <div v-if="loading" class="text-center d-flex align-items-center justify-content-center wrap-loader">
-            <b-spinner variant="primary" label="Spinning"></b-spinner>
-        </div>
-        <div v-else>
+        <div >
             <b-form @submit.prevent="registUser" @reset="onReset">
                 <b-form-group id="input-group-2" label="Your Name:" label-for="input-2">
                     <b-form-input
@@ -66,6 +63,7 @@
     export default {
         name: "regist",
         layout: 'frontend',
+        middleware:'guest',
         data() {
             return {
                 form: {
@@ -78,7 +76,6 @@
                 },
                 roles: [],
                 wasSubmitted: false,
-                loading: true
             }
         },
         methods: {
@@ -99,10 +96,8 @@
         async created() {
             try {
                 this.roles = await this.$axios.$get('users/get-all-roles');
-                this.loading = false;
             } catch (e) {
                 console.error(e);
-                this.loading = false;
             }
 
             console.log(this.roles);
@@ -119,7 +114,7 @@
                     async isUnique(value) {
                         if (value === '') return true;
 
-                        return this.$axios.$get('users/совки /' + value);
+                        return this.$axios.$get('users/users/' + value);
                     }
                 },
                 role_id: {

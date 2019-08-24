@@ -24,6 +24,8 @@ export default {
     css: [
         '~node_modules/bootstrap/dist/css/bootstrap.css',
         '~node_modules/bootstrap-vue/dist/bootstrap-vue.css',
+        "~node_modules/@fortawesome/fontawesome-free/css/all.css",
+        '~index.scss'
     ],
     /*
     ** Plugins to load before mounting the App
@@ -31,13 +33,13 @@ export default {
     plugins: [
         '@plugins/vue-bootstrap',
         '@plugins/vuelidate',
-        '@plugins/axios'
     ],
     /*
     ** Nuxt.js modules
     */
     modules: [
         // Doc: https://axios.nuxtjs.org/usage
+        '@nuxtjs/auth',
         '@nuxtjs/axios',
         '@nuxtjs/pwa',
     ],
@@ -47,6 +49,21 @@ export default {
     */
     axios: {
         baseURL: 'https://zoo.com/api/'
+    },
+    auth: {
+        login: '/login',
+        logout: '/',
+        strategies: {
+            local: {
+                endpoints: {
+                    login: {url: 'users/login', method: 'post', propertyName: 'access_token'},
+                    logout: {url: 'users/logout', method: 'get',},
+                    user: {url: 'users/get-curr-user', method: 'get', propertyName: 'data'},
+                },
+                tokenRequired: true,
+                tokenType: 'Bearer'
+            },
+        }
     },
     /*
     ** Build configuration

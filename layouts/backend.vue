@@ -14,6 +14,7 @@
 
     export default {
         name: "backend",
+        middleware: ['admin'],
         components: {
             HeaderBackend
         }

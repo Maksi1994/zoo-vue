@@ -3,7 +3,11 @@
         <header-frontend class="mb-5"></header-frontend>
 
         <section class="container">
-            <nuxt />
+            <nuxt/>
+        </section>
+
+        <section class="footer mt-5 py-3">
+
         </section>
     </section>
 </template>
@@ -19,6 +23,9 @@
     }
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+    .footer {
+        min-height: 100px;
+        background-color: #17a2b8 !important;
+    }
 </style>

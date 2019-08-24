@@ -1,15 +1,15 @@
 <template>
-    <one></one>
+    <editor></editor>
 </template>
 
 <script>
-    import One from '~/components/backend/places/one.vue';
+    import Editor from '~/components/backend/places/editor.vue';
 
     export default {
-        name: "index",
+        name: "create",
         layout: 'backend',
         components: {
-            One
+            Editor
         }
     }
 </script>
